@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <title>For Kukaye 💖</title>
     <style>
+        @keyframes floatUp {
+    0% {
+        transform: translateY(0);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-120vh);
+        opacity: 0;
+    }
+}
         body {
             font-family: 'Arial', sans-serif;
             background: #fff0f5;
@@ -211,6 +221,24 @@
     function chooseNo() {
         alert("😏 You can’t say no! I won’t give you a choice 😉 But I still love you!");
     }
+// Floating small hearts
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.innerHTML = "💗";
+    heart.style.position = "fixed";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.bottom = "-20px";
+    heart.style.fontSize = (Math.random() * 10 + 12) + "px"; // small hearts
+    heart.style.opacity = "0.7";
+    heart.style.pointerEvents = "none";
+    heart.style.animation = "floatUp 6s linear";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}, 800); // creates heart every 0.8 seconds
+
 </script>
 
 </body>
